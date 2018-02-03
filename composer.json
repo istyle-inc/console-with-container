@@ -1,0 +1,34 @@
+{
+  "name": "istyle-inc/console-with-container",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "description": ["Sample for Writing beautiful command line applications Using The Symfony\\Console Component with PSR-11 Container "],
+  "authors": [
+    {
+      "name": "Yuuki Takezawa",
+      "email": "takezaway@istyle.co.jp"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "symfony/console": "^4.0",
+    "psr/container": "^1.0.0",
+    "zendframework/zend-servicemanager": "^3.3.2",
+    "aura/di": "^3.4.0",
+    "league/container": "^2.4.1",
+    "illuminate/container": "^5.5.33"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ConsoleApp\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  }
+}

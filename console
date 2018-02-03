@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application('console-with-container', '1.0.0');
+
+/*
+// Containerを使わずにコマンドアプリケーションを登録
+$application->addCommands([
+    new \ConsoleApp\Commands\SampleExecuteCommand(
+        new User(
+            'ytake',
+            'https://github.com/ytake'
+        )
+    ),
+]);
+*/
+
+// Containerを経由してコマンドアプリケーション登録
+$factory = new \ConsoleApp\ContainerFactory\Factory();
+/**
+ * zend  / aura / league / illuminate
+ * 4つのコンテナを入れ替えることができます
+ */
+$container = $factory->build('zend');
+$application->addCommands([
+    $container->get(\ConsoleApp\Commands\SampleExecuteCommand::class),
+]);
+
+$application->run();
